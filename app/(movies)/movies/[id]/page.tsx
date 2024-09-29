@@ -3,13 +3,21 @@ import { API_URL } from "../../../(home)/page";
 import MovieInfo from "../../../components/movie-info";
 import MovieVideos from "../../../components/movie-videos";
 
-export default async function MovieDetail({ params: { id } }: { params: { id: string } }) {
+interface IParams {
+    params: { id: string; };
+}
+
+export async function generateMetadata({ params: { id } }: IParams) {
+    return {
+        title: 'lalala',
+    }
+}
+
+export default async function MovieDetail({ params: { id } }: IParams) {
     return <div>
-        <h3>Movie detail page</h3>
         <Suspense  fallback={<h1>Loading movie Info</h1>}>
             <MovieInfo id={id} />
         </Suspense>
-        <h3>Videos</h3>
         <Suspense fallback={<h1>Loading movie Videos</h1>}>
             <MovieVideos id={id} />
         </Suspense>
