@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { API_URL } from "../(home)/page";
 import potato from '../../styles/movie-info.module.css';
+import { API_URL } from "../constant";
 
 async function getMovieInfo(id: string) {
     const response = await fetch(`${API_URL}/${id}`);
